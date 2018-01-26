@@ -1,0 +1,25 @@
+package com.keenum.nestedifs;
+
+public class NestedIfs {
+	
+	public static void main(String[] args)
+	{
+		float students = 0.0f;
+		float rooms = 4.0f;
+		
+		if (students > 0)
+		{
+			if (rooms > 0.0f)
+			{
+				System.out.println(students/rooms);
+			}
+		}
+		else
+		{
+			System.out.println("No Student");
+		}
+		
+		System.out.println();
+		System.out.println("** End Program **");
+	}
+}
