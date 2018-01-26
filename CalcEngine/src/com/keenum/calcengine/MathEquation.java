@@ -26,7 +26,7 @@ public class MathEquation {
 	}
 	
 	
-	
+	// Getters and Setters
 	public double getLeftVal()
 	{
 		return leftVal;
@@ -57,7 +57,26 @@ public class MathEquation {
 	public double getResult(){
 		return result;
 	}
+	// Overloaded Calculate for doubles
+	public void Calculate(double leftVal, double rightVal)
+	{
+		this.leftVal = leftVal;
+		this.rightVal = rightVal;
+		
+		Calculate();		
+	}
 	
+	// Overloaded Calculate for integers
+	public void Calculate(int leftVal, int rightVal)
+	{
+		this.leftVal = leftVal;
+		this.rightVal = rightVal;
+		
+		Calculate();	
+		result = (int) result;
+	}
+	
+	// Method to calculate what Math function to call
 	public void Calculate()
 	{
 		switch (opCode)
