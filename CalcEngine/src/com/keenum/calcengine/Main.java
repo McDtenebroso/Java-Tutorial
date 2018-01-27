@@ -4,6 +4,27 @@ public class Main {
 
 	public static void main(String[] args)
 	{
+		// useMathEquation();
+		// useOverloadEquation();
+		// useInheritanceEquation();
+		
+		String[] statements = {
+				"divide 100 50",
+				"add 25 92",
+				"subtract 225 17",
+				"multiply 3 11"
+		};
+		
+		CalculateHelper helper = new CalculateHelper();
+		for (String statement:statements)
+		{
+			helper.process(statement);
+			System.out.println(helper);
+		}
+		
+	}
+	
+	static void useMathEquation(){
 		MathEquation[] equations = new MathEquation[4];
 		equations[0] = new MathEquation('d', 100.0d, 50.0d);
 		equations[1] = new MathEquation('a', 25.0d, 92.0d);
@@ -15,7 +36,10 @@ public class Main {
 			equation.Calculate();
 			System.out.println("Result = " + equation.getResult());
 		}
-
+	}
+	
+	static void useOverloadEquation()
+	{
 		System.out.println("\nUsing Overlads\n");
 
 		double leftDouble = 9;
@@ -33,8 +57,26 @@ public class Main {
 		
 		equationOverload.Calculate((double)leftInt, rightInt);
 		System.out.println("Dbl/Int = " + equationOverload.getResult());
-		
-
 	}
 
+	static void useInheritanceEquation()
+	{
+		System.out.println("\nUsing Inheritance\n");
+		
+		CalculateBase[] calculators = 
+		{
+				new Divide(100, 50),
+				new Add(25, 92),
+				new Subtract(225, 17),
+				new Multiply(11,3)
+		};
+		
+		for(CalculateBase calculator : calculators)
+		{
+			calculator.calculate();
+			System.out.println("Result = " + calculator.getResult());
+		}
+		
+	}
+	
 }

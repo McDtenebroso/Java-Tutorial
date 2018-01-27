@@ -57,6 +57,8 @@ public class MathEquation {
 	public double getResult(){
 		return result;
 	}
+	
+	
 	// Overloaded Calculate for doubles
 	public void Calculate(double leftVal, double rightVal)
 	{

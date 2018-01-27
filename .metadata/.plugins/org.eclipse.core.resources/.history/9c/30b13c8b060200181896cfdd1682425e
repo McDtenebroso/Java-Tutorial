@@ -1,0 +1,18 @@
+package com.keenum.typeconversion;
+
+public class TypeConverison {
+
+		public static void main(String[] args){
+			
+			float floatVal = 1.0f;
+			double doubelVal = 4.0d;
+			byte byteVal = 7;
+			short shortVal = 7;
+			long longVal = 5;
+			
+			short result1 = longVal;
+			
+			System.out.println("Success");
+			
+		}
+}

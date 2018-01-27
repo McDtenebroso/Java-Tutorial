@@ -1,0 +1,54 @@
+package com.keenum.calcengine;
+
+public class CalculateHelper {
+	MathCommand command;
+	double leftVal;
+	double rightVal;
+	double result;
+	
+	public void process(String statement)
+	{
+		String[] parts = statement.split(" ");
+		String commandString = parts[0];
+		leftVal = Double.parseDouble(parts[1]);
+		rightVal = Double.parseDouble(parts[2]);
+		
+		setCommandFromString(commandString);
+		
+		CalculateBase calculator = null;
+		
+		switch (command)
+		{
+			case Add:
+				calculator = new Add();
+				break;
+			case Subtract:
+				calculator = new Subtract();
+				break;
+			case Multiply:
+				calculator = new Multiply();
+				break;
+			case Divide:
+				calculator = new Divide();
+				break;
+		}
+		
+		calculator.calculate();
+		result = calculator.getResult();
+		
+	}
+	
+	private void setCommandFromString(String commandString)
+	{
+		if (commandString.equalsIgnoreCase(MathCommand.Add.toString()))
+				command = MathCommand.Add; 
+		else if (commandString.equalsIgnoreCase(MathCommand.Subtract.toString()))
+			command = MathCommand.Subtract;
+		else if (commandString.equalsIgnoreCase(MathCommand.Multiply.toString()))
+			command = MathCommand.Multiply;
+		else if (commandString.equalsIgnoreCase(MathCommand.Divide.toString()))
+			command = MathCommand.Divide;
+		else
+			System.out.println("Command not found");
+	}
+}

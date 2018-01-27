@@ -1,0 +1,40 @@
+package com.keenum.calcengine;
+
+public class Main {
+
+	public static void main(String[] args)
+	{
+		MathEquation testEquation = new MathEquation();
+		testEquation.Calculate();
+		System.out.println("Test = " + testEquation.getResult());
+		
+			
+		
+		MathEquation[] equations = new MathEquation[4];
+		equations[0] = Create(100.0d, 50.0d, 'd');
+		equations[1] = Create(25.0d, 92.0d, 'a');
+		equations[2] = Create(225.0d, 17.0d, 's');
+		equations[3] = Create(11.0d, 3.0d, 'm');
+		
+		for (MathEquation equation : equations)
+		{
+			equation.Calculate();
+			
+			System.out.println("Result = " + equation.getResult());
+		}
+
+	}
+
+	public static MathEquation Create(double leftVal, double rightVal,
+			char opCode)
+	{
+		MathEquation equation = new MathEquation();
+		
+		equation.setLeftVal(leftVal);
+		equation.setRightVal(rightVal);
+		equation.setOpCode(opCode);
+		
+		return equation;
+	}
+
+}

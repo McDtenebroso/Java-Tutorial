@@ -1,0 +1,19 @@
+package com.keenum.calcengine;
+
+public class Multiply extends CalculateBase {
+
+	public Multiple(){}
+	
+	public Multiple(double leftVal, double rightVal)
+	{
+		super(leftVal, rightVal);
+	}
+	
+	@Override
+	public void calculate() 
+	{
+		double value = getLeftVal() * getRightVal();
+		setResult(value);
+	}
+	
+}
