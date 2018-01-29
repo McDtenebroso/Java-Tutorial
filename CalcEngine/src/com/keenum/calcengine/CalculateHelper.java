@@ -8,20 +8,39 @@ public class CalculateHelper {
 	private final static char DIVIDE_SYMBOL = '/';
 			
 	
-	
 	MathCommand command;
 	double leftVal;
 	double rightVal;
 	double result;
 	
-	public void process(String statement)
+	// Example of throwing exceptions
+	public void process(String statement) throws InvalidStatementException
 	{
 		String[] parts = statement.split(" ");
+		
+		if (parts.length != 3)
+		{
+			throw new InvalidStatementException("Incorrect Number of Fields", statement);
+		}
+		
+		
 		String commandString = parts[0];
-		leftVal = Double.parseDouble(parts[1]);
-		rightVal = Double.parseDouble(parts[2]);
+		
+		try
+		{
+			leftVal = Double.parseDouble(parts[1]);
+			rightVal = Double.parseDouble(parts[2]);
+		}
+		catch (NumberFormatException e)
+		{
+			throw new InvalidStatementException("Non-Numeric Value Entered", statement, e);
+		}
 		
 		setCommandFromString(commandString);
+		if (command == null)
+		{
+			throw new InvalidStatementException("Invalid Command Entered", statement);
+		}
 		
 		CalculateBase calculator = null;
 		
@@ -46,8 +65,6 @@ public class CalculateHelper {
 		
 	}
 	
-
-	
 	private void setCommandFromString(String commandString)
 	{
 		if (commandString.equalsIgnoreCase(MathCommand.Add.toString()))
@@ -58,8 +75,6 @@ public class CalculateHelper {
 			command = MathCommand.Multiply;
 		else if (commandString.equalsIgnoreCase(MathCommand.Divide.toString()))
 			command = MathCommand.Divide;
-		else
-			System.out.println("Command not found");
 	}
 	
 	@Override
@@ -82,6 +97,7 @@ public class CalculateHelper {
 				break;
 		}
 		
+		// Example of a string builder
 		StringBuilder sb = new StringBuilder(20);
 		sb.append(leftVal);
 		sb.append(" ");

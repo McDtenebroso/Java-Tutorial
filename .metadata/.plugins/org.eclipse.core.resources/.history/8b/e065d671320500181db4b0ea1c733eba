@@ -1,0 +1,9 @@
+package com.keenum.calcengine;
+
+enum MathCommand
+{
+	Add,
+	Subtract,
+	Multiply,
+	Divide
+}

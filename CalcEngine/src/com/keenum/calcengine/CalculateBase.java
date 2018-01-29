@@ -6,6 +6,7 @@ public abstract class CalculateBase {
 	private double rightVal;
 	private double result;
 	
+	// Getters and Setters
 	public double getLeftVal()
 	{
 		return leftVal;
@@ -36,10 +37,12 @@ public abstract class CalculateBase {
 	// Constructor
 	public CalculateBase() { }
 	
+	// Constructor
 	public CalculateBase(double leftVal, double rightVal) {
 		this.leftVal = leftVal;
 		this.rightVal = rightVal;
 	}
 	
+	// abstract method for the derived classes to override
 	public abstract void calculate();
 }

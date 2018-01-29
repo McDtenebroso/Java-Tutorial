@@ -1,0 +1,10 @@
+package com.keenum.calcengine;
+
+public interface IMathProcessing {
+
+	String SEPARATOR = " ";
+	String getKeyword(); // Add
+	char getSymbol(); // '+'
+	double doCalculations(double leftVal, double rightVal);
+	
+}

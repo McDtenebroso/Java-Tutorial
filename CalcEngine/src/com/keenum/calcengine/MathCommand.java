@@ -1,6 +1,7 @@
 package com.keenum.calcengine;
 
-public enum MathCommand
+// Example of an enum
+enum MathCommand
 {
 	Add,
 	Subtract,
