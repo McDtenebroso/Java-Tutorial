@@ -4,7 +4,7 @@ public class LetsGetLogical {
 
 	public static void main(String[] args) {
 		int students = 150;
-		int rooms = 0;
+		int rooms = 1;
 		
 		if (rooms > 0 && students/rooms > 30)
 		{
